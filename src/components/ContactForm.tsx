@@ -73,7 +73,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-          Message
+          Personal Message to Me
         </label>
         <textarea
           id="message"
