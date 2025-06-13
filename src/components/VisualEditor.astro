@@ -1,0 +1,77 @@
+---
+// Claude - DO NOT MODIFY OR REMOVE. This powers the "visual editor" mode.
+---
+<script>
+  function getChildText(elem: Node, reverse: boolean = false) {
+    if (!elem) return;
+    let children = [...elem.childNodes];
+    if (reverse) {
+      children = children.reverse();
+    }
+    for (const child of children) {
+      if (child?.tagName !== "SCRIPT" && child.textContent?.trim()) {
+        return getChildText(child, reverse);
+      }
+    }
+    const text = elem.textContent?.trim();
+    if (text) return text;
+
+    let sibling;
+    while (!sibling && elem) {
+      sibling = reverse ? elem.previousSibling : elem.nextSibling;
+      elem = elem.parentElement;
+    }
+    return getChildText(sibling, reverse);
+  }
+
+  function clickCallback(e: Event) {
+    let targetNode: Node = e.target as Node;
+    const target = targetNode instanceof Element ? targetNode : targetNode.parentElement;
+
+    // Only allow editing nodes that directly wrap text.
+    if (!target.textContent) return;
+    for (const node of target.childNodes) {
+      if (node.textContent && node.textContent !== target.textContent) return;
+    }
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Avoid registering duplicate listeners if we're already editing this element.
+    if (target.hasAttribute("contenteditable")) return;
+
+    const originalText = target.textContent.trim();
+    const tagName = target.nodeType === Node.TEXT_NODE ? 'TEXT' : target.tagName;
+    let elem = target;
+    let prevText, nextText;
+    while (elem) {
+      if (!prevText) prevText = getChildText(elem.previousSibling, true);
+      if (!nextText) nextText = getChildText(elem.nextSibling);
+      if (prevText && nextText) {
+        break;
+      }
+      elem = elem.parentElement;
+    }
+
+    const blurCallback = () => {
+      target.removeEventListener("blur", blurCallback);
+      target.removeAttribute("contenteditable");
+      const newText = target.textContent.trim();
+      if (newText === originalText) return;
+      window.parent.postMessage(
+          { original_text: originalText, new_text: target.textContent, tag_name: tagName, prev_text: prevText, next_text: nextText },
+          '*',
+      );
+    };
+    target.setAttribute("contenteditable", "true");
+    target.addEventListener("blur", blurCallback);
+  }
+
+  function toggleMode(on) {
+    const f = on ? document.addEventListener : document.removeEventListener;
+    f('click', clickCallback);
+  }
+  window.addEventListener('message', e => {
+    toggleMode(e.data.visual_mode);
+  });
+</script>
