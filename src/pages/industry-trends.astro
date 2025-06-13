@@ -1,0 +1,38 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { buttonVariants } from "@/components/ui/button";
+import VisualEditor from "@/components/VisualEditor.astro";
+---
+
+<BaseLayout
+  title="Rust Industry Trends - Latest Developments in Rust Programming"
+  description="Explore the latest industry trends in Rust programming, including enterprise adoption, WebAssembly development, and job market growth."
+>
+  <div class="container py-10">
+    <div class="flex flex-col gap-4 mb-8">
+      <h1 class="text-4xl font-extrabold tracking-tight">
+        Rust Industry Trends
+      </h1>
+      <p class="text-xl text-muted-foreground">
+        The Rising Star in Systems Programming
+      </p>
+    </div>
+
+    <div class="prose prose-lg max-w-none">
+      <p class="lead">
+        Rust has been steadily gaining momentum in the industry since its first stable release in 2015. Here's a closer look at the key trends shaping Rust adoption in 2025.
+      </p>
+
+      <p>Coming soon! This page will contain detailed industry trends for Rust development.</p>
+      
+      <div class="mt-8 flex justify-center">
+        <a href="/" class={buttonVariants({ size: "lg" })}>
+          Return to Home
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DO NOT REMOVE - Necessary for making visual edits via new.website! -->
+  <VisualEditor />
+</BaseLayout>
