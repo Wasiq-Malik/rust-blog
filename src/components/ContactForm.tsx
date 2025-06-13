@@ -43,7 +43,7 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-          Name
+          Full Name
         </label>
         <input
           type="text"
