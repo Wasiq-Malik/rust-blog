@@ -10,18 +10,28 @@ import { buttonVariants } from "@/components/ui/button";
   >
     <div class="flex gap-6 md:gap-10">
       <a href="/" class="flex items-center space-x-2">
-        <span class="inline-block font-bold">Home</span>
+        <span class="inline-block font-bold text-primary text-xl tracking-tight" style="font-family: 'Space Grotesk', sans-serif;">Rust<span class="text-accent">Blog</span></span>
       </a>
     </div>
     <div class="flex flex-1 items-center justify-end space-x-4">
       <nav class="flex items-center space-x-1">
         <a
-          href="https://github.com/"
-          target="_blank"
-          rel="noreferrer"
+          href="#trends"
           class={buttonVariants({ variant: 'ghost' })}
         >
-          Example link
+          Industry Trends
+        </a>
+        <a
+          href="#comparison"
+          class={buttonVariants({ variant: 'ghost' })}
+        >
+          vs C/C++
+        </a>
+        <a
+          href="#course"
+          class={buttonVariants({ variant: 'outline' })}
+        >
+          Rust Course
         </a>
       </nav>
     </div>
