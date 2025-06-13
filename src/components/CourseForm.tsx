@@ -1,15 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { Label } from "./ui/label";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
 
 export default function CourseForm() {
   const defaultFormData = {name: "", email: "", experience_level: "beginner", interests: "", form_name: "Rust Course Interest Form"};
@@ -51,71 +42,63 @@ export default function CourseForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5 w-full max-w-md">
-      <FormItem>
-        <FormLabel htmlFor="name" className="text-base">Name</FormLabel>
-        <FormControl>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-            required
-            className="w-full px-3 py-2 bg-background border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-          />
-        </FormControl>
-      </FormItem>
+      <div className="space-y-2">
+        <Label htmlFor="name" className="text-base">Name</Label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={formData.name}
+          onChange={handleInputChange}
+          required
+          className="w-full px-3 py-2 bg-background border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+        />
+      </div>
 
-      <FormItem>
-        <FormLabel htmlFor="email" className="text-base">Email</FormLabel>
-        <FormControl>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            required
-            className="w-full px-3 py-2 bg-background border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-          />
-        </FormControl>
-      </FormItem>
+      <div className="space-y-2">
+        <Label htmlFor="email" className="text-base">Email</Label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleInputChange}
+          required
+          className="w-full px-3 py-2 bg-background border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+        />
+      </div>
 
-      <FormItem>
-        <FormLabel htmlFor="experience_level" className="text-base">Experience Level</FormLabel>
-        <FormControl>
-          <select
-            id="experience_level"
-            name="experience_level"
-            value={formData.experience_level}
-            onChange={handleInputChange}
-            required
-            className="w-full px-3 py-2 bg-background border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-          >
-            <option value="beginner">Beginner - New to programming</option>
-            <option value="intermediate">Intermediate - Familiar with other languages</option>
-            <option value="advanced">Advanced - Some Rust experience</option>
-            <option value="expert">Expert - Looking to deepen knowledge</option>
-          </select>
-        </FormControl>
-      </FormItem>
+      <div className="space-y-2">
+        <Label htmlFor="experience_level" className="text-base">Experience Level</Label>
+        <select
+          id="experience_level"
+          name="experience_level"
+          value={formData.experience_level}
+          onChange={handleInputChange}
+          required
+          className="w-full px-3 py-2 bg-background border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+        >
+          <option value="beginner">Beginner - New to programming</option>
+          <option value="intermediate">Intermediate - Familiar with other languages</option>
+          <option value="advanced">Advanced - Some Rust experience</option>
+          <option value="expert">Expert - Looking to deepen knowledge</option>
+        </select>
+      </div>
 
-      <FormItem>
-        <FormLabel htmlFor="interests" className="text-base">What are you most interested in learning?</FormLabel>
-        <FormControl>
-          <textarea
-            id="interests"
-            name="interests"
-            value={formData.interests}
-            onChange={handleInputChange}
-            rows={3}
-            className="w-full px-3 py-2 bg-background border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-          />
-        </FormControl>
-        <FormDescription>
+      <div className="space-y-2">
+        <Label htmlFor="interests" className="text-base">What are you most interested in learning?</Label>
+        <textarea
+          id="interests"
+          name="interests"
+          value={formData.interests}
+          onChange={handleInputChange}
+          rows={3}
+          className="w-full px-3 py-2 bg-background border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+        />
+        <p className="text-sm text-muted-foreground">
           Tell us what Rust topics you're most excited about
-        </FormDescription>
-      </FormItem>
+        </p>
+      </div>
 
       <input name="form_name" type="hidden" value={formData.form_name} />
       

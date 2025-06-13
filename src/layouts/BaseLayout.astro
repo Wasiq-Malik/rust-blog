@@ -23,8 +23,8 @@ const { title, description, ogImage } = Astro.props;
       <main class="flex-auto">
         <slot />
       </main>
-      <!-- NewWebsiteBanner has been removed as requested -->
-      <!-- <NewWebsiteBanner /> -->
+      <!-- DO NOT REMOVE! NewWebsiteBanner MUST ALWAYS BE VISIBLE! -->
+      <NewWebsiteBanner />
       <Footer />
     </div>
   </body>

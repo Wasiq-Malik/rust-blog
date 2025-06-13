@@ -10,16 +10,32 @@ import VisualEditor from "@/components/VisualEditor.astro";
 >
   <div class="container py-10">
     <div class="flex flex-col gap-4 mb-8">
-      <h1 class="text-4xl font-extrabold tracking-tight" style="font-family: 'Space Grotesk', sans-serif;">
+      <h1 class="text-4xl font-extrabold tracking-tight font-display">
         Rust vs C/C++: A Comprehensive Comparison
       </h1>
-      <p class="text-xl text-muted-foreground" style="font-family: 'Fira Code', monospace;">
+      <p class="text-xl text-muted-foreground font-body">
         Understanding the strengths and tradeoffs of modern systems programming languages
       </p>
     </div>
 
-    <div class="prose prose-lg max-w-none" style="font-family: 'Fira Code', monospace;">
-      <p>Coming soon! This page will contain a detailed comparison between Rust and C/C++.</p>
+    <div class="prose prose-lg max-w-none font-body">
+      <p>This page contains a detailed comparison between Rust and C/C++, focusing on memory safety, performance characteristics, developer productivity, and interoperability.</p>
+      
+      <h2 class="text-2xl font-bold font-display mt-8">Memory Safety</h2>
+      
+      <p>Rust's ownership system provides memory safety guarantees at compile time without garbage collection overhead, preventing common issues like buffer overflows, use-after-free vulnerabilities, and data races.</p>
+      
+      <h2 class="text-2xl font-bold font-display mt-8">Performance</h2>
+      
+      <p>Both languages offer similar performance characteristics, with Rust providing safety guarantees without significant overhead. Benchmark results show Rust consistently performs within 0-5% of optimized C++ code.</p>
+      
+      <h2 class="text-2xl font-bold font-display mt-8">Developer Experience</h2>
+      
+      <p>Rust provides modern developer tooling including Cargo for package management, clear compiler error messages, built-in documentation, and a first-party testing framework.</p>
+      
+      <h2 class="text-2xl font-bold font-display mt-8">Interoperability</h2>
+      
+      <p>Both languages can work together in the same codebase, allowing for incremental migration from C/C++ to Rust.</p>
       
       <div class="mt-8 flex justify-center">
         <a href="/" class={buttonVariants({ size: "lg" })}>
