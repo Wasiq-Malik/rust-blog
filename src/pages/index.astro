@@ -65,10 +65,10 @@ import { Code, Cpu, Database, LineChart, BarChart4, GanttChart, ShieldCheck, Ref
 let v = vec![1, 2, 3];
 
 let first = &v[0];  // Borrow the first element
-v.clear();          // Empty the vector
+// v.clear();       // Error: Cannot clear while borrowed
 
-// Error: cannot borrow `v` as mutable because
-// it is also borrowed as immutable
+// The borrow checker prevents memory issues
+// by enforcing strict ownership rules
 println!("First: &#123;&#125;", first);</code></pre>
       </div>
     </div>

@@ -55,29 +55,30 @@ import VisualEditor from "@/components/VisualEditor.astro";
         <pre class="text-sm"><code>// This won't compile in Rust
 let s1 = String::from("hello");
 let s2 = s1; // Ownership is moved to s2
-println!("&#123;&#125;", s1); // Error: s1 has been moved</code></pre>
+// Error: s1 has been moved
+// println!("&#123;&#125;", s1);</code></pre>
       </div>
       
       <p class="mt-6">In addition to ownership, Rust allows temporary access to values through <strong>borrowing</strong>:</p>
       
       <ul class="list-disc list-inside space-y-2 pl-4">
         <li><strong>Immutable references</strong> (&T) - Multiple allowed simultaneously</li>
-        <li><strong>Mutable references</strong> (&mut T) - Only one allowed at a time</li>
+        <li><strong>Mutable references</strong> (written as &amp;mut T) - Only one allowed at a time</li>
       </ul>
       
       <div class="mt-6 p-4 bg-muted rounded-md">
-        <pre class="text-sm"><code>fn main() {
-    let mut data = vec![1, 2, 3];
+        <pre class="text-sm"><code>fn main() &#123;
+    let data = vec![1, 2, 3];
     
     // Multiple immutable borrows are fine
     let r1 = &data;
     let r2 = &data;
     println!("&#123;&#125; and &#123;&#125;", r1[0], r2[1]);
     
-    // But you can't have mutable and immutable borrows simultaneously
-    let r3 = &mut data; // Error if r1 and r2 are still in use
-    r3.push(4);
-}</code></pre>
+    // Cannot modify while borrowed
+    // let r3 = &data; 
+    // data.push(4); // Error: cannot borrow as mutable
+&#125;</code></pre>
       </div>
       
       <h2 class="text-2xl font-bold font-display mt-8">Why Learn This New Mental Model?</h2>
