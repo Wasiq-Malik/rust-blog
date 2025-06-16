@@ -154,11 +154,32 @@ import { Code, Cpu, Database, LineChart, BarChart4, GanttChart, ShieldCheck, Ref
           </a>
         </CardFooter>
       </Card>
+
+      <Card className="border-secondary/50">
+        <CardHeader>
+          <div class="bg-secondary/10 p-2 w-fit rounded-md mb-2">
+            <Code className="h-5 w-5 text-secondary" />
+          </div>
+          <CardTitle class="font-display">The Borrow Checker</CardTitle>
+          <CardDescription>Rust's revolutionary approach to memory management</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p class="font-body">Learn about Rust's unique borrow checker, the core innovation that provides memory safety without garbage collection and why it changes how we think about code.</p>
+        </CardContent>
+        <CardFooter>
+          <a href="/borrow-checker" class="text-sm text-secondary inline-flex items-center hover:underline">
+            Read more <ArrowRight className="ml-1 h-3 w-3" />
+          </a>
+        </CardFooter>
+      </Card>
     </div>
 
-    <div class="flex justify-center mt-8">
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
       <a href="/industry-trends" class={buttonVariants({ size: "lg" })}>
-        hihi Full Industry Trends Report
+        View Industry Trends Report
+      </a>
+      <a href="/borrow-checker" class={buttonVariants({ size: "lg", variant: "outline" })}>
+        Learn About the Borrow Checker
       </a>
     </div>
   </section>
