@@ -18,29 +18,66 @@ import { Code, Cpu, Database, LineChart, BarChart4, GanttChart, ShieldCheck, Ref
         The Future is <span class="text-gradient">Rust</span>
       </h1>
       <p class="text-muted-foreground max-w-[700px] text-xl font-body">
-        Explore the latest in rustacean development, industry trends, and master Rust programming with our comprehensive course.
+        Explore the latest in Rust development, industry trends, and master Rust programming with our comprehensive course.
       </p>
     </div>
-    <div class="flex gap-4">
+    <div class="flex flex-wrap gap-4">
       <a
-        href="#trends"
+        href="/industry-trends"
         class={buttonVariants({ size: "lg" })}
       >
         Explore Industry Trends
       </a>
       <a
-        href="#course"
+        href="/borrow-checker"
+        class={buttonVariants({ variant: "secondary", size: "lg" })}
+      >
+        Learn the Borrow Checker
+      </a>
+      <a
+        href="/#course"
         class={buttonVariants({ variant: "outline", size: "lg" })}
       >
-        Join my rust Course
+        Join Rust Course
       </a>
     </div>
   </section>
 
+  <!-- Featured Article -->
+  <section class="container py-12 bg-secondary/10 rounded-lg border border-secondary/20">
+    <div class="flex flex-col md:flex-row gap-8 items-center">
+      <div class="flex-1 space-y-4">
+        <div class="bg-secondary/20 p-2 w-fit rounded-md">
+          <Code className="h-6 w-6 text-secondary" />
+        </div>
+        <h2 class="text-3xl font-bold tracking-tight font-display">Understanding Rust's Borrow Checker</h2>
+        <p class="text-xl font-body">
+          Rust's revolutionary approach to memory management is what sets it apart from other languages. Learn how the borrow checker provides memory safety without sacrificing performance.
+        </p>
+        <div class="pt-4">
+          <a href="/borrow-checker" class={buttonVariants({ size: "lg", variant: "secondary" })}>
+            Read Full Article
+          </a>
+        </div>
+      </div>
+      <div class="flex-1 bg-muted rounded-lg p-6 border border-border">
+        <pre class="text-sm overflow-auto"><code>// This won't compile in Rust
+let v = vec![1, 2, 3];
+
+let first = &v[0];  // Borrow the first element
+v.clear();          // Empty the vector
+
+// Error: cannot borrow `v` as mutable because
+// it is also borrowed as immutable
+println!("First: &#123;&#125;", first);</code></pre>
+      </div>
+    </div>
+  </section>
+  
   <!-- Industry Trends Section -->
   <section id="trends" class="container py-12 space-y-10">
     <div class="flex flex-col items-center text-center gap-4 mb-8">
-      <h2 class="text-3xl font-bold tracking-tight font-display">Latest nig Trends</h2>
+      <h2 class="text-3xl font-bold tracking-tight font-display">Latest Industry Trends</h2>
       <p class="text-muted-foreground text-lg max-w-[700px] font-body">
         Rust continues to gain traction in the industry for its performance, reliability, and security.
       </p>
@@ -155,9 +192,9 @@ import { Code, Cpu, Database, LineChart, BarChart4, GanttChart, ShieldCheck, Ref
         </CardFooter>
       </Card>
 
-      <Card className="border-secondary/50">
+      <Card class="border-secondary/50 bg-secondary/5">
         <CardHeader>
-          <div class="bg-secondary/10 p-2 w-fit rounded-md mb-2">
+          <div class="bg-secondary/20 p-2 w-fit rounded-md mb-2">
             <Code className="h-5 w-5 text-secondary" />
           </div>
           <CardTitle class="font-display">The Borrow Checker</CardTitle>
@@ -167,7 +204,7 @@ import { Code, Cpu, Database, LineChart, BarChart4, GanttChart, ShieldCheck, Ref
           <p class="font-body">Learn about Rust's unique borrow checker, the core innovation that provides memory safety without garbage collection and why it changes how we think about code.</p>
         </CardContent>
         <CardFooter>
-          <a href="/borrow-checker" class="text-sm text-secondary inline-flex items-center hover:underline">
+          <a href="/borrow-checker" class="text-sm text-secondary inline-flex items-center hover:underline font-bold">
             Read more <ArrowRight className="ml-1 h-3 w-3" />
           </a>
         </CardFooter>
@@ -178,7 +215,7 @@ import { Code, Cpu, Database, LineChart, BarChart4, GanttChart, ShieldCheck, Ref
       <a href="/industry-trends" class={buttonVariants({ size: "lg" })}>
         View Industry Trends Report
       </a>
-      <a href="/borrow-checker" class={buttonVariants({ size: "lg", variant: "outline" })}>
+      <a href="/borrow-checker" class={buttonVariants({ size: "lg", variant: "secondary" })}>
         Learn About the Borrow Checker
       </a>
     </div>
